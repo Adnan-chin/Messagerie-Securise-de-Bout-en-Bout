@@ -1,13 +1,21 @@
 {
-  "name": "secure-messaging",
+  "name": "ecc_app",
   "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Adnan-chin/Messagerie-Securise-de-Bout-en-Bout#readme",
+  "bugs": {
+    "url": "https://github.com/Adnan-chin/Messagerie-Securise-de-Bout-en-Bout/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adnan-chin/Messagerie-Securise-de-Bout-en-Bout.git"
+  },
   "type": "module",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "test": "node index.js"
   },
   "dependencies": {
-    "type": "module",
     "@noble/curves": "^2.4.0",
     "crypto": "^1.0.1",
     "dotenv": "^18.0.8",
@@ -15,13 +23,5 @@
     "express-session": "^1.19.0",
     "pg": "^8.23.1",
     "ws": "^8.22.0"
-  },
-
-  "devDependencies": {
-    "nodemon": "^3.1.14"
-  },
-  "allowScripts": {
-    "package-json@4.0.1": true,
-    "got@6.7.1": true
   }
 }
