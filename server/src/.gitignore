@@ -1,0 +1,14 @@
+#####sam992
+# Ignore log files
+*.dockerignore
+*.env
+
+
+
+# Ignore temp folders
+node_modules/
+package.json
+package-lock.json
+
+
+######

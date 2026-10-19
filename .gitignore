@@ -1,6 +1,0 @@
-# Ignore log files
-*.dockerignore
-*.env
-docker-compose.yml
-# Ignore temp folders
-node_modules/

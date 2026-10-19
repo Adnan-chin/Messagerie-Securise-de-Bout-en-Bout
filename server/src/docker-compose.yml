@@ -1,0 +1,43 @@
+services:
+  db:
+    image: postgres:16
+    container_name: ecc_db
+    env_file: 
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # - ./db/seed.sql:/docker-entrypoint-initdb.d/seed.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: ./server/src
+    container_name: ecc_app
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "4040:4040"
+
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
