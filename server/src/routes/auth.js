@@ -1,4 +1,5 @@
 // server.mjs
+
 import express from 'express';
 import session from 'express-session';
 import crypto from 'node:crypto';
@@ -92,6 +93,8 @@ app.post('/register', async (req, res) => {
   }
 });
 
+
+
 // ---------- POST /challenge : issue a single-use nonce ----------
 app.post('/challenge', (req, res) => {
   const { username } = req.body ?? {};
@@ -127,9 +130,7 @@ app.post('/verify', async (req, res) => {
   let ok = false;
   try {
     const { rows } = await pool.query(
-      'SELECT sign_pub FROM users WHERE username = $1',
-      [username]
-    );
+      'SELECT sign_pub FROM users WHERE username = $1', [username] );
     const sig = decodeB64(signature, 64, 'signature');
     const msg = Buffer.concat([AUTH_CONTEXT, Buffer.from(challenge.nonce, 'base64')]);
     ok = rows.length === 1 && ed25519.verify(sig, msg, rows[0].sign_pub);
