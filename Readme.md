@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-start
-heyyyyadsadsasdadsadasdasdasdsad
 =======
 # Messagerie sécurisée de bout en bout
 Messagerie web chiffrée de bout en bout : échange de clés hybride X25519 + ML-KEM-768, forward secrecy, ratchet par message et rotation des clés.
@@ -36,4 +33,4 @@ npm test         # depuis la racine
 ```
 
 
->>>>>>> a1c56138937d5b24e457b96e0d323288baa9ff02
+
