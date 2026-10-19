@@ -1,0 +1,8 @@
+{
+"name": "Messagerie-Securise-de-Bout-en-Bout",
+"private": true,
+"type": "module",
+"scripts": { "test": "vitest run" },
+"devDependencies":{"vitest":"5.0.5"},
+"workspaces": ["client", "server"] 
+}
